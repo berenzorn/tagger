@@ -8,19 +8,18 @@ public class Solution {
     public static Set<String> stringset = new HashSet<>();
 
     public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String fileName = reader.readLine();
+        reader.close();
+        BufferedReader fr = new BufferedReader(new FileReader(fileName));
+//        String line = "Info about Leela <span xml:lang=\"en\" lang=\"en\"><b><span>Turanga Leela<span>Leela</span></span></b></span><span>Super<span>Super</span></span><span>girl</span>";
+        String line = "";
+        while (fr.ready())
+            line += fr.readLine();
+        fr.close();
 
-
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//        String fileName = reader.readLine();
-//        reader.close();
-//        BufferedReader fr = new BufferedReader(new FileReader(fileName));
-        String line = "Info about Leela <span xml:lang=\"en\" lang=\"en\"><b><span>Turanga Leela<span>Leela</span></span></b></span><span>Super<span>Super</span></span><span>girl</span>";
-//        while (fr.ready())
-//            line += fr.readLine();
-//        fr.close();
-
-//        String tag = args[0];
-        String tag = "span";
+        String tag = args[0];
+//        String tag = "span";
         SortedMap<Integer, String> orderMap;
         orderMap = mapreader(line, tag);
         String closeTag = "</" + tag + ">";
